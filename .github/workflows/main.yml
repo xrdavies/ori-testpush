@@ -28,7 +28,7 @@ jobs:
          git config --global user.email 1884084+xrdavies@users.noreply.github.com;
          cp -R ../public/* .;
          git add .;
-         gti status;
+         git status;
          git commit -m "Automatic commit";
          git status;
          git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git" --set-upstream main
