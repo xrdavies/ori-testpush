@@ -12,17 +12,15 @@ jobs:
     steps:
      - name: Checkout
        uses: actions/checkout@v2
-#      - run: yarn
-#      - run: yarn build
-#      - run: git config user.name github-actions
-#      - run: git config user.email github-actions@github.com
-#      - run: git --work-tree build add --all && git commit -m "Automatic Deploy action run by github-actions"
-#      - run : git push origin HEAD:gh-pages --force      
+       
+     - name: Compile
+       run: |
+         yarn;
+         yarn build;
+         
      - name: Pushes to another repository
        run: |
          git clone --single-branch --branch "main" "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git";
-         mkdir temp;
-         mv .git temp/;
          cd testpush;
          git config --global user.name Frozen;
          git config --global user.email 1884084+xrdavies@users.noreply.github.com;
