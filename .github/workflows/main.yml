@@ -25,7 +25,7 @@ jobs:
          git config user.name Frozen;
          git config user.email 1884084+xrdavies@users.noreply.github.com;
          cp -R ../public/* .;
-         git . add --all;
+         git add .;
          git commit -m "Automatic Deploy action run by github-actions";
          git status;
          git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git" --set-upstream main
