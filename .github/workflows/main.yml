@@ -31,11 +31,11 @@ jobs:
          git status;
          git commit -m "Automatic commit";
          git status;
-#         git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git" --set-upstream main
-     - name: Push changes
-       uses: ad-m/github-push-action@master
-       with:
-         github_token: ${{ secrets.PERSONA_TOKEN }}
-         repository: "https://github.com/xrdavies/testpush.git"
-         branch: main
+         git push "https://xrdavies:${{ secrets.PERSONA_TOKEN }}@github.com/xrdavies/testpush.git" --set-upstream main
+#      - name: Push changes
+#        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secrets.PERSONA_TOKEN }}
+#          repository: "https://github.com/xrdavies/testpush.git"
+#          branch: main
 #        ${{ secrets.API_TOKEN_GITHUB }}
