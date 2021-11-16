@@ -20,13 +20,16 @@ jobs:
 #      - run : git push origin HEAD:gh-pages --force      
      - name: Pushes to another repository
        run: |
-         git clone https://github.com/xrdavies/testpush.git;
+         git clone --single-branch --branch "main" "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git";
+         mkdir temp;
+         mv .git temp/;
          cd testpush;
-         git config user.name Frozen;
-         git config user.email 1884084+xrdavies@users.noreply.github.com;
+         git config --global user.name Frozen;
+         git config --global user.email 1884084+xrdavies@users.noreply.github.com;
          cp -R ../public/* .;
          git add .;
-         git commit -m "Automatic Deploy action run by github-actions";
+         gti status;
+         git commit -m "Automatic commit";
          git status;
          git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git" --set-upstream main
        
