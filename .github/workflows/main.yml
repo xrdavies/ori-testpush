@@ -23,8 +23,8 @@ jobs:
        run: |
          git clone https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git;
          cd testpush;
-         git config user.name github-actions;
-         git config user.email github-actions@github.com;
+         git config user.name Frozen;
+         git config user.email 1884084+xrdavies@users.noreply.github.com;
          cp -R ../build/* .
          git --work-tree . add --all && git commit -m "Automatic Deploy action run by github-actions";
          git push origin
