@@ -4,4 +4,6 @@ This repo is a test of building react app and publish to another repo as gh-page
 
 The destination repo is https://github.com/xrdavies/testpush.git
 
+You can access the pages here  https://xrdavies.github.io/testpush/
+
 The action yaml is in .github/workflows/
