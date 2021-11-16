@@ -19,15 +19,15 @@ jobs:
 #      - run: git --work-tree build add --all && git commit -m "Automatic Deploy action run by github-actions"
 #      - run : git push origin HEAD:gh-pages --force      
      - name: Pushes to another repository
-       id: push_directory
        run: |
-         git clone https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git;
+         git clone https://github.com/xrdavies/testpush.git;
          cd testpush;
          git config user.name Frozen;
          git config user.email 1884084+xrdavies@users.noreply.github.com;
          cp -R ../public/* .;
-         git --work-tree . add --all && git commit -m "Automatic Deploy action run by github-actions";
+         git . add --all;
+         git commit -m "Automatic Deploy action run by github-actions";
          git status;
-         git push https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git --set-upstream main
+         git push "https://xrdavies:${{ secrets.PERSONAL_TOKEN }}@github.com/xrdavies/testpush.git" --set-upstream main
        
 #        ${{ secrets.API_TOKEN_GITHUB }}
