@@ -7,17 +7,24 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build React App
-      run: yarn && yarn build
-    - run: git config user.name github-actions
-    - run: git config user.email github-actions@github.com
-    - name: Checkin 
-    - run: git config user.name github-actions
-    - run: git config user.email github-actions@github.com
-    - run : git --work-tree build add --all && git commit -m "Automatic Deploy action run by github-actions"
-    - name: Push
-      run : git push origin HEAD:gh-pages --force      
+    - name: Checkout
+      uses: actions/checkout@v2
+  
+  build:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+     - run: yarn
+     - run: yarn build
+    
+  checkin:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+     - run: git config user.name github-actions
+     - run: git config user.email github-actions@github.com
+     - run: git --work-tree build add --all && git commit -m "Automatic Deploy action run by github-actions"
+     - run : git push origin HEAD:gh-pages --force      
